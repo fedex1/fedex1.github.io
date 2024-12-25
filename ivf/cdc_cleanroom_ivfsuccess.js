@@ -253,6 +253,7 @@ console.log('<html><head><meta charset="utf-8"><meta name="viewport" content="wi
 console.log(`<body><script src="cdc_cleanroom_ivfsuccess.js"></script>`)
 
 console.log(`<form name="ivf">`)
+console.log("<br><br><fieldset><legend>Do you plan to use your own eggs or donor eggs? and Have you checked with a doctor? And have you attempted IVF before?</legend>")
 console.log(`<select id="formselectcase" name="formselectcase">`)
 for( let a of inputtable ){
     const key=(`${a.param_using_own_eggs}|${a.param_attempted_ivf_previously}|${a.param_is_reason_for_infertility_known}`)
@@ -268,7 +269,7 @@ console.log(`<option value="${a.param_using_own_eggs}|${a.param_attempted_ivf_pr
 
 }
 console.log(`</select>`)
-console.log(`</label>`)
+console.log("</fieldset>")
 
 
 // age
@@ -340,12 +341,18 @@ console.log(`</select>`)
 console.log(`</label>`)
 
 console.log("form_array", form_array, typeof(form_array), form_array.length);
+console.log("<br><br><fieldset><legend>What is the reason you are using IVF? (select all that apply)</legend>")
 for (let x in form_array) {
     console.log(x, form_array[x])
     if(x.indexOf("_true_") != -1){
-console.log(`<br><input type="checkbox" id="${x}" name="${x}" value="${x}"><label for="${x}">${x}</label>`)
+    if(x.indexOf("_unexplained_infertility_") != -1){
+console.log(`<br><br>OR<br><br><input onclick="clearothers()" type="checkbox" id="${x}" name="${x}" value="${x}"><label for="${x}">${x}</label>`)
+    } else {
+console.log(`<br><input onclick="clearspecial()" type="checkbox" id="${x}" name="${x}" value="${x}"><label for="${x}">${x}</label>`)
+    }
     }
 }
+console.log("</fieldset>")
 
 for (let x in form_array) {
     console.log(x, form_array[x])
@@ -570,3 +577,22 @@ answer
 document.getElementById("answer").value=JSON.stringify(answer)
 }
 
+function clearothers() {
+    const checkboxes = document.querySelectorAll('input[type="checkbox"]')
+    for (let checkbox of checkboxes) {
+        console.log(checkbox)
+        if (checkbox.id !== "unexplained_infertility") {
+            checkbox.checked = false
+        }
+    }
+}
+
+function clearspecial() {
+    const checkboxes = document.querySelectorAll('input[type="checkbox"]')
+    for (let checkbox of checkboxes) {
+        console.log(checkbox)
+        if (checkbox.id === "unexplained_infertility") {
+            checkbox.checked = false
+        }
+    }
+}
