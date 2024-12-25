@@ -377,7 +377,7 @@ for (let x in form_array) {
 // Do you plan to use your own eggs or donor eggs?
 console.log(`<br><input type="button" onclick="getinput()" value="submit">`)
 console.log(`<br><b>CLIENT SIDE:</b><br><textarea id="answer" readonly rows="4" cols="50"></textarea>`)
-console.log(`<br><b>SERVER SIDE:</b><textarea id="answerserver" readonly rows="4" cols="50"></textarea>`)
+console.log(`<br><b>SERVER SIDE:</b><br><textarea id="answerserver" readonly rows="4" cols="50"></textarea>`)
 console.log(`</form>`)
 console.log(`</body></html>`)
 
