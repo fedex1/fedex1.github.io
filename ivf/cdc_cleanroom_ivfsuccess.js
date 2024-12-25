@@ -249,7 +249,8 @@ code against this form, choose "2" on the CDC site.
 let arraychoicesbool=[]
 let arraychoicesnumbers=[]
 
-console.log(`<script src="cdc_cleanroom_ivfsuccess.js"></script>`)
+console.log('<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1"><meta name="description" content="Find your new planned Property Tax Bill according to the 2021 Property Tax Advisory Commission Report in New York City. And Find New York City property tax rating and tax history by searching by owner name, LLC, address, etc."><meta name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large"></head>')
+console.log(`<body><script src="cdc_cleanroom_ivfsuccess.js"></script>`)
 
 console.log(`<form name="ivf">`)
 console.log(`<select id="formselectcase" name="formselectcase">`)
@@ -362,8 +363,9 @@ for (let x in form_array) {
 
 // Do you plan to use your own eggs or donor eggs?
 console.log(`<br><input type="button" onclick="getinput()" value="submit">`)
-console.log(`<br><textarea id="answer" readonly></textarea>`)
+console.log(`<br><textarea id="answer" readonly rows="4" cols="50"></textarea>`)
 console.log(`</form>`)
+console.log(`</body></html>`)
 
 
 
