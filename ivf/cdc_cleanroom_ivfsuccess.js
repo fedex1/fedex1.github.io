@@ -430,7 +430,8 @@ if (typeof fetch !== 'function') {
 const call1 = async () => {
 const response = await fetch(`https://script.google.com/macros/s/AKfycbwjXqeo8NKSUgXA2qY9fscyazex2_MGq-_O1piJhsTauLR_A0gdt--vjMSj3TPpsK0U/exec?inputobject=${encodeURIComponent(JSON.stringify(inputobject))}`)
     const answerserver=await response.text()
-    console.log(`>>>${answerserver}`)
+    console.log(`>>>REQUEST: ${JSON.stringify(inputobject)}`)
+    console.log(`>>>RESPONSE: ${answerserver}`)
     console.log("typeof document",typeof document)
     if (typeof document !== "undefined") {
         document.getElementById("answerserver").value = answerserver
